@@ -2,6 +2,6 @@
 	name = gainchang
 	email = gainchang@proton.me
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [core]
 	autocrlf = input
