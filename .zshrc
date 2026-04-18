@@ -1,6 +1,3 @@
-# ============================================
-# [PROMPT: p10k] Instant prompt - p10k 쓸 때만 활성화
-# ============================================
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -31,7 +28,7 @@ if command -v pyenv >/dev/null; then
 fi
 
 # ============================================
-# nvm (brew 설치 버전)
+# nvm
 # ============================================
 export NVM_DIR="$HOME/.nvm"
 [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"
@@ -54,7 +51,7 @@ export PATH="$PATH:/Applications/GoLand.app/Contents/MacOS"
 export PATH="$PATH:$HOME/.iximiuz/labctl/bin"
 
 # ============================================
-# History 설정
+# History
 # ============================================
 HISTSIZE=50000
 SAVEHIST=50000
@@ -65,8 +62,7 @@ setopt EXTENDED_HISTORY
 setopt HIST_VERIFY
 
 # ============================================
-# 사고 방지: > 로 기존 파일 덮어쓰기 차단
-# (진짜 덮어쓰려면 >| 사용)
+# if overwrite is needed use >|
 # ============================================
 setopt NO_CLOBBER
 
@@ -75,7 +71,7 @@ setopt NO_CLOBBER
 # ============================================
 autoload -Uz compinit && compinit
 
-# kubectl / helm / gh completion (있을 때만)
+# kubectl / helm / gh completion (if exists)
 command -v kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
 command -v helm    >/dev/null 2>&1 && source <(helm completion zsh)
 command -v gh      >/dev/null 2>&1 && eval "$(gh completion -s zsh)"
@@ -124,21 +120,11 @@ alias vi='nvim'
 alias vim='nvim'
 alias cl='clear'
 
-# ============================================
-# ⭐ PROMPT: 둘 중 하나만 주석 해제
-# ============================================
-
-# --- Option A: Powerlevel10k (현재 활성화) ---
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# --- Option B: Starship ---
 # eval "$(starship init zsh)"
 
-# ============================================
-# Fastfetch (터미널 열 때 시스템 정보 표시)
-# ============================================
-# 인터랙티브 쉘에서만 (스크립트 실행 시 방해 안 되게)
 if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>&1; then
   fastfetch
 fi
