@@ -1,0 +1,7 @@
+[user]
+	name = gainchang
+	email = gainchang@proton.me
+[init]
+	defaultBranch = master
+[core]
+	autocrlf = input
